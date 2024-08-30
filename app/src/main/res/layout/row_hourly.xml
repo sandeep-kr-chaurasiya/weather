@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="12dp"
+    android:layout_marginBottom="12dp"
+    android:background="@drawable/items"
+    android:orientation="vertical"
+    android:padding="16dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="12 AM"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textColor="#4A4A4A"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="72°F"
+        android:textColor="#4A4A4A"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Rain"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:layout_gravity="center"
+        android:textAppearance="?attr/textAppearanceBody2"
+        android:textColor="@color/gray" />
+
+    <TextView
+        android:id="@+id/rain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/gray"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="2 mm, 90%" />
+
+</LinearLayout>
