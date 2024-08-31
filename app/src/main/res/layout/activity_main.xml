@@ -17,17 +17,18 @@
         app:title="My Weather"
         app:menu="@menu/menu"
         app:titleTextColor="@color/black"
+        app:navigationIconTint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/ThemeOverlay.MaterialComponents.Toolbar.Primary"
-        app:titleTextAppearance="@style/CustomToolbarTitle" />
+        app:titleTextAppearance="@color/black" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="12dp"
         android:backgroundTint="@color/background"
         app:cardCornerRadius="12dp"
         app:cardElevation="2dp"
@@ -228,12 +229,12 @@
             </GridLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
+<!--24 hour forecast section -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="12dp"
         android:backgroundTint="@color/background"
         app:cardElevation="2dp"
         android:padding="16dp"
@@ -269,12 +270,12 @@
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
+<!--upcoming days forecast section -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="12dp"
         android:backgroundTint="@color/background"
         app:cardElevation="2dp"
         app:cardCornerRadius="12dp"
