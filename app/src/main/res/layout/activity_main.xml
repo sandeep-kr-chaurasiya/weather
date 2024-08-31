@@ -14,14 +14,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/secondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/menu"
         app:navigationIconTint="@color/white"
         app:popupTheme="@style/ThemeOverlay.MaterialComponents.Toolbar.Primary"
         app:title="Weather"
-        app:titleTextAppearance="@style/ToolbarTitleTextAppearance"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:titleTextAppearance="@style/ToolbarTitleTextAppearance" />
 
     <ScrollView
         android:id="@+id/scroll"
@@ -36,8 +36,8 @@
             android:id="@+id/main2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/primary"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:background="@color/primary">
 
 
             <androidx.cardview.widget.CardView
@@ -69,7 +69,7 @@
                             android:fontFamily="@font/poppins_medium"
                             android:text="India "
                             android:textColor="@color/white"
-                            android:textSize="20sp"
+                            android:textSize="22sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -172,23 +172,47 @@
                             android:layout_marginRight="12dp"
                             android:layout_marginBottom="12dp"
                             android:background="@drawable/items"
-                            android:orientation="vertical"
+                            android:orientation="horizontal"
                             android:padding="10dp">
 
-                            <TextView
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Precipitation"
-                                android:textColor="@color/white" />
+                                android:orientation="vertical">
 
-                            <TextView
-                                android:id="@+id/precipitation"
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Precipitation"
+                                    android:textColor="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/precipitation"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="20 mm"
+                                    android:textAppearance="?attr/textAppearanceHeadline6"
+                                    android:textColor="@android:color/white"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="20 mm"
-                                android:textAppearance="?attr/textAppearanceHeadline6"
-                                android:textColor="@android:color/white"
-                                android:textStyle="bold" />
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="20dp">
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:id="@+id/animationView"
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    app:lottie_autoPlay="true"
+                                    app:lottie_loop="true"
+                                    app:lottie_rawRes="@raw/rain" />
+
+                            </LinearLayout>
+
+
                         </LinearLayout>
 
                         <!-- Wind -->
@@ -197,24 +221,48 @@
                             android:layout_height="100dp"
                             android:layout_columnWeight="1"
                             android:background="@drawable/items"
-                            android:orientation="vertical"
+                            android:orientation="horizontal"
                             android:padding="10dp">
 
-                            <TextView
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Wind"
-                                android:textAppearance="?attr/textAppearanceBody2"
-                                android:textColor="@color/white" />
+                                android:orientation="vertical">
 
-                            <TextView
-                                android:id="@+id/wind"
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Wind"
+                                    android:textAppearance="?attr/textAppearanceBody2"
+                                    android:textColor="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/wind"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="10 mph"
+                                    android:textAppearance="?attr/textAppearanceHeadline6"
+                                    android:textColor="@android:color/white"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="10 mph"
-                                android:textAppearance="?attr/textAppearanceHeadline6"
-                                android:textColor="@android:color/white"
-                                android:textStyle="bold" />
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="20dp">
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:id="@+id/windanimationView"
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    app:lottie_autoPlay="true"
+                                    app:lottie_loop="true"
+                                    app:lottie_rawRes="@raw/wind" />
+
+                            </LinearLayout>
+
                         </LinearLayout>
 
                         <!-- Humidity -->
@@ -226,24 +274,47 @@
                             android:layout_columnWeight="1"
                             android:layout_marginEnd="12dp"
                             android:background="@drawable/items"
-                            android:orientation="vertical"
+                            android:orientation="horizontal"
                             android:padding="10dp">
 
-                            <TextView
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Humidity"
-                                android:textAppearance="?attr/textAppearanceBody2"
-                                android:textColor="@color/white" />
+                                android:orientation="vertical">
 
-                            <TextView
-                                android:id="@+id/humidity"
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Humidity"
+                                    android:textAppearance="?attr/textAppearanceBody2"
+                                    android:textColor="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/humidity"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="60%"
+                                    android:textAppearance="?attr/textAppearanceHeadline6"
+                                    android:textColor="@android:color/white"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="60%"
-                                android:textAppearance="?attr/textAppearanceHeadline6"
-                                android:textColor="@android:color/white"
-                                android:textStyle="bold" />
+                                android:layout_marginStart="25dp"
+                                android:layout_marginTop="20dp">
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:id="@+id/humnimationView"
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    app:lottie_autoPlay="true"
+                                    app:lottie_loop="true"
+                                    app:lottie_rawRes="@raw/humidity" />
+                            </LinearLayout>
+
                         </LinearLayout>
 
                         <!-- UV Index -->
@@ -253,24 +324,45 @@
                             android:layout_row="1"
                             android:layout_columnWeight="1"
                             android:background="@drawable/items"
-                            android:orientation="vertical"
+                            android:orientation="horizontal"
                             android:padding="10dp">
 
-                            <TextView
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="UV Index"
-                                android:textAppearance="?attr/textAppearanceBody2"
-                                android:textColor="@color/white" />
+                                android:orientation="vertical">
 
-                            <TextView
-                                android:id="@+id/uv_index"
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="UV Index"
+                                    android:textAppearance="?attr/textAppearanceBody2"
+                                    android:textColor="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/uv_index"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="6"
+                                    android:textAppearance="?attr/textAppearanceHeadline6"
+                                    android:textColor="@android:color/white"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="6"
-                                android:textAppearance="?attr/textAppearanceHeadline6"
-                                android:textColor="@android:color/white"
-                                android:textStyle="bold" />
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="20dp">
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:id="@+id/uvanimationView"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    app:lottie_autoPlay="true"
+                                    app:lottie_loop="true"
+                                    app:lottie_rawRes="@raw/uv" />
+                            </LinearLayout>
                         </LinearLayout>
                     </GridLayout>
                 </LinearLayout>
@@ -365,9 +457,9 @@
                 android:id="@+id/author"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:layout_margin="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
