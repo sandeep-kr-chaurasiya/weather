@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/search"
-        app:iconTint="@color/black"
+        app:iconTint="@color/white"
         android:icon="@drawable/search_24px"
         android:title="@string/search"
         android:orderInCategory="100"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="always" />
     <item
-        app:iconTint="@color/black"
+        app:iconTint="@color/white"
         android:id="@+id/live_location"
         android:icon="@drawable/location_icon"
         android:title="@string/location"

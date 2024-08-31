@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="120dp"
-    android:layout_marginEnd="16dp"
-    android:layout_marginBottom="12dp"
+<LinearLayout android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_marginEnd="12dp"
+    android:layout_marginBottom="12dp"
     android:background="@drawable/items"
-    android:padding="12dp"
+    android:orientation="vertical"
+    android:padding="16dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
@@ -14,57 +13,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:fontFamily="sans-serif-condensed-medium"
         android:text="12 AM"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:layout_gravity="center"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="72°F"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/time"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:textColor="@color/white"
+        android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:fontFamily="sans-serif-condensed-medium"
+        android:layout_marginTop="8dp"
         android:text="Rain"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.04"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/time"
-        app:layout_constraintVertical_bias="0.971" />
+        android:fontFamily="sans-serif-condensed-medium"
+        android:layout_gravity="center"
+        android:textAppearance="?attr/textAppearanceBody2"
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/rain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/white"
         android:fontFamily="sans-serif-condensed-medium"
-        android:text="2 mm"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/temp"
-        app:layout_constraintVertical_bias="0.0" />
+        android:text="2 mm, 90%" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        window.statusBarColor = ContextCompat.getColor(this, R.color.secondary)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -176,12 +177,12 @@ class MainActivity : AppCompatActivity() {
                             currentLocation.text = "${it.location.name}, ${it.location.country}"
                             temperature.text = "${it.current.temp_c}°C"
                             feelsLike.text = "Feels Like: ${it.current.feelslike_c}°C"
-                            minMaxTemp.text = "Min: ${it.forecast.forecastday.first().day.mintemp_c}°C / Max: ${it.forecast.forecastday.first().day.maxtemp_c}°C"
+                            minMaxTemp.text = "Min ${it.forecast.forecastday.first().day.mintemp_c}°C | Max ${it.forecast.forecastday.first().day.maxtemp_c}°C"
                             precipitation.text = "${it.current.precip_mm} mm"
-                            wind.text = "${it.current.wind_kph} kph"
+                            wind.text = "${it.current.wind_kph} km/h"
                             humidity.text = "${it.current.humidity}%"
                             uvIndex.text = it.current.uv.toString()
-                            date.text = "Today, ${Calendar.getInstance().time.toString().substring(0, 10)}"
+                            date.text = " ${Calendar.getInstance().time.toString().substring(0, 10)}"
                             Glide.with(this@MainActivity)
                                 .load("https:${it.current.condition.icon}")
                                 .into(weatherIcon)

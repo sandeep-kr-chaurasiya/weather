@@ -15,7 +15,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:text="Monday"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="16sp" />
 
     <ImageView
@@ -35,7 +35,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="8dp"
         android:text="72°C / 65°F"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="16sp" />
 
     <TextView
@@ -45,7 +45,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="8dp"
         android:text="Rain : 2mm, 90%"
-        android:textColor="@color/gray"
+        android:textColor="@color/white"
         android:textSize="16sp" />
     <TextView
         android:id="@+id/condition"
@@ -54,7 +54,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="8dp"
         android:text="Feels like rainy"
-        android:textColor="@color/gray"
+        android:textColor="@color/white"
         android:textSize="16sp" />
 
 

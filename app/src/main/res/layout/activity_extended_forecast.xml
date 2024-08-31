@@ -6,14 +6,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/primary"
     tools:context=".ExtendedForecastActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/tool"
+        android:background="@color/secondary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +21,7 @@
         app:popupTheme="@style/ThemeOverlay.MaterialComponents.Toolbar.Primary"
         app:title="Extended Forecast"
         app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-        app:titleTextColor="@color/black" />
+        app:titleTextColor="@color/white" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/extendedForecastRecyclerView"

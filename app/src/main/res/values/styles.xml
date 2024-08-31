@@ -4,4 +4,10 @@
         <item name="android:textSize">24sp</item>
         <item name="fontFamily">poppins_semibold</item>
     </style>
+    <!-- Custom Text Appearance for Toolbar Title -->
+    <style name="ToolbarTitleTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">@font/poppins</item>
+    </style>
 </resources>
