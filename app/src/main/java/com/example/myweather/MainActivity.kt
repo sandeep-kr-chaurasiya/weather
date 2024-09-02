@@ -8,12 +8,14 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.app.ActivityCompat
@@ -38,6 +40,8 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.Serializable
+import java.time.LocalTime
+import java.time.format.DateTimeFormatter
 import java.util.Calendar
 import kotlin.math.log
 
@@ -113,7 +117,6 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-
         searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 query?.let {
@@ -165,6 +168,7 @@ class MainActivity : AppCompatActivity() {
         val call = apiInterface.getWeatherWithLocation(key, location)
 
         call.enqueue(object : Callback<WeatherData> {
+            @RequiresApi(Build.VERSION_CODES.O)
             @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<WeatherData>, response: Response<WeatherData>) {
                 if (response.isSuccessful) {
@@ -182,9 +186,12 @@ class MainActivity : AppCompatActivity() {
                             humidity.text = "${it.current.humidity}%"
                             uvIndex.text = it.current.uv.toString()
                             date.text = " ${Calendar.getInstance().time.toString().substring(0, 10)}"
-                            val condition = it.current.condition.toString()
+                            val condition = it.current.condition.text
                             updateIcon(condition)
                             Log.d("icon", "onResponse:${condition}")
+                            var currenthour=getCurrentTimeIn24HourFormat()
+                            updatenightLogo(currenthour,condition)
+                            Log.d("time","${currenthour}")
                         }
 
 // ------------------------------ Hourly weather data-------------------------//
@@ -216,20 +223,35 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
-//--------to add icon -----------//
+
 private fun updateIcon(condition: String) {
     when (condition) {
         "Sunny" -> binding.weatherIcon.setAnimation(R.raw.sunny)
+        "Clear" -> binding.weatherIcon.setAnimation(R.raw.sunny)
+        "Mist" -> binding.weatherIcon.setAnimation(R.raw.sunny)
         "Partly cloudy" -> binding.weatherIcon.setAnimation(R.raw.parialy_cloudy)
         "Cloudy" -> binding.weatherIcon.setAnimation(R.raw.cloudy)
         "Overcast" -> binding.weatherIcon.setAnimation(R.raw.overcast)
         "Thundery outbreaks possible" -> binding.weatherIcon.setAnimation(R.raw.thunder)
-        "Light rain" -> binding.weatherIcon.setAnimation(R.raw.light_rain)
+        "Light rain","Light rain shower" -> binding.weatherIcon.setAnimation(R.raw.light_rain)
         "Heavy rain" -> binding.weatherIcon.setAnimation(R.raw.heavy_rain)
         "Moderate or heavy rain with thunder" -> binding.weatherIcon.setAnimation(R.raw.rain_thunder)
         else -> binding.weatherIcon.setAnimation(R.raw.parialy_cloudy)
     }
+    binding.weatherIcon.playAnimation()
 }
+
+    private fun updatenightLogo(currentHour: Int,condition: String) {
+        if (currentHour >= 16 || currentHour < 15) {
+            binding.weatherIcon.setAnimation(R.raw.night)
+            when (condition) {
+                "Heavy rain","Light rain","Moderate or heavy rain with thunder" -> binding.weatherIcon.setAnimation(R.raw.night_rain)
+                "Cloudy","Overcast","Partly cloudy" -> binding.weatherIcon.setAnimation(R.raw.cloud_night)
+            }
+            binding.weatherIcon.playAnimation()
+        }
+    }
+
     private fun getHourlyData(forecastDay: Forecastday): List<Hour> {
         return forecastDay.hour
     }
@@ -262,5 +284,10 @@ private fun updateIcon(condition: String) {
             }
         }
     }
-
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun getCurrentTimeIn24HourFormat(): Int {
+        val currentTime = LocalTime.now()
+        val formatter = DateTimeFormatter.ofPattern("HH")
+        return currentTime.format(formatter).toInt()
+    }
 }
