@@ -84,7 +84,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="40dp"
+                        android:layout_marginTop="30dp"
                         android:gravity="center_vertical"
                         android:orientation="vertical">
 
@@ -93,12 +93,13 @@
                             android:layout_height="match_parent"
                             android:orientation="horizontal">
 
-                            <ImageView
+                            <com.airbnb.lottie.LottieAnimationView
                                 android:id="@+id/weather_icon"
-                                android:layout_width="120dp"
-                                android:layout_height="120dp"
-                                android:layout_marginEnd="8dp"
-                                android:src="@drawable/cloud_24px" />
+                                android:layout_width="160dp"
+                                android:layout_height="160dp"
+                                app:lottie_autoPlay="true"
+                                app:lottie_loop="true"
+                                app:lottie_rawRes="@raw/parialy_cloudy" />
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -106,6 +107,7 @@
                                 android:orientation="vertical">
 
                                 <LinearLayout
+                                    android:layout_marginTop="40dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal">

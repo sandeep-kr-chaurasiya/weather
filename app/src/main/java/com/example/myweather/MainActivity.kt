@@ -39,6 +39,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.Serializable
 import java.util.Calendar
+import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -170,9 +171,7 @@ class MainActivity : AppCompatActivity() {
                     dialog.dismiss()
                     val data = response.body()
                     data?.let {
-
                         // Current weather data
-
                         binding.apply {
                             currentLocation.text = "${it.location.name}, ${it.location.country}"
                             temperature.text = "${it.current.temp_c}°C"
@@ -183,13 +182,12 @@ class MainActivity : AppCompatActivity() {
                             humidity.text = "${it.current.humidity}%"
                             uvIndex.text = it.current.uv.toString()
                             date.text = " ${Calendar.getInstance().time.toString().substring(0, 10)}"
-                            Glide.with(this@MainActivity)
-                                .load("https:${it.current.condition.icon}")
-                                .into(weatherIcon)
+                            val condition = it.current.condition.toString()
+                            updateIcon(condition)
+                            Log.d("icon", "onResponse:${condition}")
                         }
 
-
-//                       Hourly weather data
+// ------------------------------ Hourly weather data-------------------------//
 
                         val currentDayForecast = it.forecast.forecastday.first()
                         val upcomingHourlyData = getHourlyData(currentDayForecast)
@@ -207,9 +205,6 @@ class MainActivity : AppCompatActivity() {
                         val json = gson.toJson(forecastData)
                         editor.putString("key", json)
                         editor.apply()
-
-
-
                     }
                 } else {
                     Log.e("WeatherData", "Response Error: ${response.errorBody()?.string()}")
@@ -221,7 +216,20 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
-
+//--------to add icon -----------//
+private fun updateIcon(condition: String) {
+    when (condition) {
+        "Sunny" -> binding.weatherIcon.setAnimation(R.raw.sunny)
+        "Partly cloudy" -> binding.weatherIcon.setAnimation(R.raw.parialy_cloudy)
+        "Cloudy" -> binding.weatherIcon.setAnimation(R.raw.cloudy)
+        "Overcast" -> binding.weatherIcon.setAnimation(R.raw.overcast)
+        "Thundery outbreaks possible" -> binding.weatherIcon.setAnimation(R.raw.thunder)
+        "Light rain" -> binding.weatherIcon.setAnimation(R.raw.light_rain)
+        "Heavy rain" -> binding.weatherIcon.setAnimation(R.raw.heavy_rain)
+        "Moderate or heavy rain with thunder" -> binding.weatherIcon.setAnimation(R.raw.rain_thunder)
+        else -> binding.weatherIcon.setAnimation(R.raw.parialy_cloudy)
+    }
+}
     private fun getHourlyData(forecastDay: Forecastday): List<Hour> {
         return forecastDay.hour
     }
