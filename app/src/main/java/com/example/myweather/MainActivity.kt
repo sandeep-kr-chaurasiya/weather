@@ -241,14 +241,16 @@ private fun updateIcon(condition: String) {
     binding.weatherIcon.playAnimation()
 }
 
-    private fun updatenightLogo(currentHour: Int,condition: String) {
-        if (currentHour >= 16 || currentHour < 15) {
-            binding.weatherIcon.setAnimation(R.raw.night)
+    private fun updatenightLogo(currentHour: Int, condition: String) {
+        if (currentHour >= 16 || currentHour < 6) {
             when (condition) {
-                "Heavy rain","Light rain","Moderate or heavy rain with thunder" -> binding.weatherIcon.setAnimation(R.raw.night_rain)
-                "Cloudy","Overcast","Partly cloudy" -> binding.weatherIcon.setAnimation(R.raw.cloud_night)
+                "Heavy rain", "Light rain", "Moderate or heavy rain with thunder" -> binding.weatherIcon.setAnimation(R.raw.night_rain)
+                "Cloudy", "Overcast", "Partly cloudy" -> binding.weatherIcon.setAnimation(R.raw.cloud_night)
+                else -> binding.weatherIcon.setAnimation(R.raw.night)
             }
             binding.weatherIcon.playAnimation()
+        } else {
+            updateIcon(condition)
         }
     }
 
