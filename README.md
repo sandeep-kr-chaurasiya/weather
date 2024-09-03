@@ -46,7 +46,7 @@ If you encounter any bugs or have any feature requests, please open an issue in 
 
 ## License
 
-MyWeather is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+MyWeather is licensed under the MIT License. 
 
 ## Contact
 
