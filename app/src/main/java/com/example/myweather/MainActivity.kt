@@ -242,7 +242,7 @@ private fun updateIcon(condition: String) {
 }
 
     private fun updatenightLogo(currentHour: Int, condition: String) {
-        if (currentHour >= 16 || currentHour < 6) {
+        if (currentHour >= 18 || currentHour < 5) {
             when (condition) {
                 "Heavy rain", "Light rain", "Moderate or heavy rain with thunder" -> binding.weatherIcon.setAnimation(R.raw.night_rain)
                 "Cloudy", "Overcast", "Partly cloudy" -> binding.weatherIcon.setAnimation(R.raw.cloud_night)
