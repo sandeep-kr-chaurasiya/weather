@@ -111,7 +111,6 @@ class MainActivity : AppCompatActivity() {
             getCurrentLocation()
             true
         }
-
         searchItem?.setOnMenuItemClickListener {
             searchView?.isIconified = false
             true
@@ -130,7 +129,6 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
         })
-
         return true
     }
 
@@ -177,7 +175,7 @@ class MainActivity : AppCompatActivity() {
                     data?.let {
                         // Current weather data
                         binding.apply {
-                            currentLocation.text = "${it.location.name}, ${it.location.country}"
+                            currentLocation.text = if (it.location.name == "Parlakimidi") "Paralakhemundi, ${it.location.country}" else "${it.location.name}, ${it.location.country}"
                             temperature.text = "${it.current.temp_c}°C"
                             feelsLike.text = "Feels Like: ${it.current.feelslike_c}°C"
                             minMaxTemp.text = "Min ${it.forecast.forecastday.first().day.mintemp_c}°C | Max ${it.forecast.forecastday.first().day.maxtemp_c}°C"
@@ -191,7 +189,7 @@ class MainActivity : AppCompatActivity() {
                             Log.d("icon", "onResponse:${condition}")
                             var currenthour=getCurrentTimeIn24HourFormat()
                             updatenightLogo(currenthour,condition)
-                            Log.d("time","${currenthour}")
+                            Log.d("timee","${currenthour}")
                         }
 
 // ------------------------------ Hourly weather data-------------------------//
