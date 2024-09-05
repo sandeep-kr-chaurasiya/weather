@@ -192,15 +192,13 @@ class MainActivity : AppCompatActivity() {
                             updatenightLogo(currenthour,condition)
                             Log.d("timee","${currenthour}")
                         }
-
 // ------------------------------ Hourly weather data-------------------------//
-
                         val currentDayForecast = it.forecast.forecastday.first()
                         val upcomingHourlyData = getHourlyData(currentDayForecast)
                         hourlyAdapter = HourlyAdapter(upcomingHourlyData)
                         binding.recyclerViewHourly.adapter = hourlyAdapter
 
-//                        Forecast weather data
+//--------------------------------Forecast weather data
                         val forecastData = getForecast(it) // List<Forecast>
                         forecastAdapter = ForecastAdapter(this@MainActivity, forecastData)
                         binding.recyclerViewForecast.adapter = forecastAdapter
@@ -216,7 +214,6 @@ class MainActivity : AppCompatActivity() {
                     Log.e("WeatherData", "Response Error: ${response.errorBody()?.string()}")
                 }
             }
-
             override fun onFailure(call: Call<WeatherData>, t: Throwable) {
                 fetchWeatherData(location)
             }
@@ -238,7 +235,7 @@ private fun updateIcon(condition: String) {
         else -> binding.weatherIcon.setAnimation(R.raw.parialy_cloudy)
     }
     binding.weatherIcon.playAnimation()
-}
+ }
     private fun updatenightLogo(currentHour: Int, condition: String) {
         if (currentHour >= 18 || currentHour < 5) {
             when (condition) {

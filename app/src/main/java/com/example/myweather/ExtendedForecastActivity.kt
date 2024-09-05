@@ -9,9 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myweather.adapter.ExtendedForecastAdapter
 import com.example.myweather.databinding.ActivityExtendedForecastBinding
-import com.example.myweather.weather_data.Forecast
 import com.example.myweather.weather_data.Forecastday
-import com.example.myweather.weather_data.WeatherData
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -43,7 +41,4 @@ class ExtendedForecastActivity : AppCompatActivity() {
         extendedForecastAdapter = ExtendedForecastAdapter(this, forecastData)
         binding.extendedForecastRecyclerView.adapter = extendedForecastAdapter
     }
-//    private fun getForecast(weatherData: WeatherData): List<Forecastday> {
-//        return weatherData.forecast.forecastday.drop(1)
-//    }
 }

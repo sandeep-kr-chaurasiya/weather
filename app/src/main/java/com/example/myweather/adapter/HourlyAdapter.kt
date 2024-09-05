@@ -8,7 +8,6 @@ import com.example.myweather.databinding.RowHourlyBinding
 import com.example.myweather.weather_data.Hour
 import java.text.ParseException
 import java.text.SimpleDateFormat
-import java.util.Calendar
 import java.util.Locale
 
 class HourlyAdapter(private val data: List<Hour>) : RecyclerView.Adapter<HourlyAdapter.UserViewHolder>() {

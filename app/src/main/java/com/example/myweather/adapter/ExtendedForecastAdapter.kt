@@ -41,7 +41,7 @@ class ExtendedForecastAdapter(private val context: Context, private val forecast
         holder.binding.humidity.text = "${forecast.day.avghumidity}%"
         holder.binding.precipitation.text = "${forecast.day.totalprecip_mm} mm"
         holder.binding.uvIndex.text = "${forecast.day.uv}"
-        holder.binding.minMaxTemp.text = "${forecast.day.mintemp_c}°C / ${forecast.day.maxtemp_c}°C"
+        holder.binding.minMaxTemp.text = "${forecast.day.mintemp_c}°C | ${forecast.day.maxtemp_c}°C"
     }
 
     private fun formatDate(dateString: String): String {
