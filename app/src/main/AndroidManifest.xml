@@ -16,7 +16,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyWeather"
         tools:targetApi="31">
-
         <activity
             android:name=".ExtendedForecastActivity"
             android:exported="false" />

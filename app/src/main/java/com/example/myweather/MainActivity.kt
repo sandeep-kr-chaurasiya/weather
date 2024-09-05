@@ -184,6 +184,7 @@ class MainActivity : AppCompatActivity() {
                             humidity.text = "${it.current.humidity}%"
                             uvIndex.text = it.current.uv.toString()
                             date.text = " ${Calendar.getInstance().time.toString().substring(0, 10)}"
+                            binding.conditiontext.text = it.current.condition.text
                             val condition = it.current.condition.text
                             updateIcon(condition)
                             Log.d("icon", "onResponse:${condition}")
@@ -238,7 +239,6 @@ private fun updateIcon(condition: String) {
     }
     binding.weatherIcon.playAnimation()
 }
-
     private fun updatenightLogo(currentHour: Int, condition: String) {
         if (currentHour >= 18 || currentHour < 5) {
             when (condition) {

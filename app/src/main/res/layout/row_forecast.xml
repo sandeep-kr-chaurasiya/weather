@@ -27,7 +27,6 @@
         android:contentDescription="Weather Icon"
         android:src="@drawable/cloud_24px" />
 
-
     <TextView
         android:id="@+id/temp"
         android:layout_width="wrap_content"
