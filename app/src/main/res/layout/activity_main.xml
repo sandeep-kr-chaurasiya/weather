@@ -9,6 +9,8 @@
     tools:context=".MainActivity">
 
     <!-- Toolbar -->
+
+
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"

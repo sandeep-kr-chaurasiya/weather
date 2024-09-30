@@ -192,7 +192,7 @@ class MainActivity : AppCompatActivity() {
                             updatenightLogo(currenthour,condition)
                             Log.d("timee","${currenthour}")
                         }
-// ------------------------------ Hourly weather data-------------------------//
+// ------------------------------ Hourly weather data------------------------//
                         val currentDayForecast = it.forecast.forecastday.first()
                         val upcomingHourlyData = getHourlyData(currentDayForecast)
                         hourlyAdapter = HourlyAdapter(upcomingHourlyData)
@@ -219,6 +219,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+
 
 private fun updateIcon(condition: String) {
     when (condition) {
@@ -268,6 +269,7 @@ private fun updateIcon(condition: String) {
         ) {
             return
         }
+
 
         fusedLocationClient.lastLocation.addOnCompleteListener { task ->
             val location: Location? = task.result

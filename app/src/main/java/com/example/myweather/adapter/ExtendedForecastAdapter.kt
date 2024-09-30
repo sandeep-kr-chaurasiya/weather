@@ -24,7 +24,6 @@ class ExtendedForecastAdapter(private val context: Context, private val forecast
     override fun getItemCount(): Int {
         return forecastList.size
     }
-
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val forecast = forecastList[position]
@@ -34,7 +33,6 @@ class ExtendedForecastAdapter(private val context: Context, private val forecast
         Glide.with(context)
             .load("https:${forecast.day.condition.icon}")
             .into(holder.binding.weatherIcon)
-
         holder.binding.temperature.text = "${forecast.day.maxtemp_c}°C"
         holder.binding.feelsLike.text = "Feels like ${forecast.day.maxtemp_c}°C"
         holder.binding.wind.text = "${forecast.day.maxwind_kph} km/h"

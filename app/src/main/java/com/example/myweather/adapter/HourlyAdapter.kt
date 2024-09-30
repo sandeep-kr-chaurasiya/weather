@@ -23,6 +23,7 @@ class HourlyAdapter(private val data: List<Hour>) : RecyclerView.Adapter<HourlyA
         return UserViewHolder(binding.root)
     }
 
+
     override fun getItemCount(): Int {
         return data.size
     }
