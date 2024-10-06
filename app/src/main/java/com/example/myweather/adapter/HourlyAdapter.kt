@@ -12,7 +12,6 @@ import java.util.Locale
 
 class HourlyAdapter(private val data: List<Hour>) : RecyclerView.Adapter<HourlyAdapter.UserViewHolder>() {
 
-
     class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val binding: RowHourlyBinding = RowHourlyBinding.bind(itemView)
     }
@@ -22,7 +21,6 @@ class HourlyAdapter(private val data: List<Hour>) : RecyclerView.Adapter<HourlyA
         val binding = RowHourlyBinding.inflate(inflater, parent, false)
         return UserViewHolder(binding.root)
     }
-
 
     override fun getItemCount(): Int {
         return data.size

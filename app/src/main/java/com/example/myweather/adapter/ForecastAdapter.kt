@@ -26,7 +26,6 @@ class ForecastAdapter(private val context: Context, private val forecastList: Li
         return forecastList.size
     }
 
-
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val forecast = forecastList[position]
         val inputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
