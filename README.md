@@ -2,7 +2,6 @@
 
 MyWeather is an Android application that provides real-time weather updates and forecasts for your current location or any city worldwide. The app is developed using Kotlin, XML, and leverages WeatherAPI for fetching weather data.
 
-
 ## Features
 
 ### 1. Current Weather Display
