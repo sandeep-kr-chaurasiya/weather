@@ -4,6 +4,7 @@ MyWeather is an Android application that provides real-time weather updates and 
 
 ## Features
 
+
 ### 1. Current Weather Display
 - **Real-time Updates**: MyWeather delivers accurate and up-to-date weather information for your current location. It displays the current temperature, weather conditions (e.g., sunny, cloudy, rainy), humidity levels, wind speed, and UV index. The app also shows how the temperature feels (feels-like temperature) based on wind and humidity.
 - **Visual Representation**: The app includes weather icons that visually represent the current conditions (e.g., a sun icon for clear skies or a cloud with rain icon for rainy conditions).
