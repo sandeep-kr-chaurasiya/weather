@@ -215,6 +215,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             override fun onFailure(call: Call<WeatherData>, t: Throwable) {
+                Log.e("WeatherData", "Request failed: ${t.message}", t)
                 fetchWeatherData(location)
             }
         })
